@@ -39,20 +39,58 @@
     </head>
     <body class="green">
         <button class="button" onclick="epilepsy()">Warning: Pressing this button may trigger epilepsy in a small percentage of people. I am not liable for injury or death after using this website. <span id="contract">By pressing this button, you agree to grant me a non transferable option to claim, for now and for ever more, your immortal soul. Should We wish to exercise this option, you agree to surrender your immortal soul, and any claim you may have on it, within 5 (five) working days of receiving written notification from www.porso7.github.io/notseizure or one of its duly authorised minions."</span></button>
-        <!--<script>
-            function epilepsy() {
-                for (i = 0; i < 100; i++) {
-                    document.getElementById("body").className = "red";
-                    setTimeout(function() {}, 500);
-                    document.getElementById("body").className = "blue";
-                    setTimeout(function() {}, 500);
-                    document.getElementById("body").className = "green";
-                    setTimeout(function() {}, 500);
-                    i++
-                }
-                document.getElementById("body").className = "normal";
-            }
-        </script>-->
+     
+<script>
+ 
+var bodyElement = document.querySelector("body");
+ 
+var requestAnimationFrame = window.requestAnimationFrame || 
+                            window.mozRequestAnimationFrame || 
+                            window.webkitRequestAnimationFrame || 
+                            window.msRequestAnimationFrame;
+ 
+var delay = 0;
+ 
+function changeColor() {
+    delay++;
+     
+    if (delay > 3) {
+        bodyElement.style.backgroundColor = getRandomColor();
+        delay = 0;
+    }
+ 
+    requestAnimationFrame(changeColor);
+}
+changeColor();           
+ 
+function getRandomColor() {
+    var r = Math.floor(Math.random()*256);
+    var g = Math.floor(Math.random()*256);
+    var b = Math.floor(Math.random()*256);
+     
+    
+    var hexR = r.toString(16);
+    var hexG = g.toString(16);
+    var hexB = b.toString(16);
+     
+   
+    if (hexR.length == 1) {
+        hexR = "0" + hexR;
+    }
+     
+    if (hexG.length == 1) {
+        hexG = "0" + hexG;
+    }
+ 
+    if (hexB.length == 1) {
+        hexB = "0" + hexB;
+    }
+ 
+    
+    var hexColor = "#" + hexR + hexG + hexB;
+    return hexColor.toUpperCase();
+}
+</script>
         <script>
                 document.getElementById("body").className = "green";
         </script>
